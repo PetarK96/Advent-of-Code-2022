@@ -24,13 +24,13 @@ def is_visible(x, y):
     height = trees[y][x]
     grid_row = trees[y]
     grid_column = [trees[col][x] for col in range(GRID_HEIGHT)]
+
     if all([t < height for t in grid_row[:x]]) or \
        all([t < height for t in grid_row[x+1:]]) or \
        all([t < height for t in grid_column[:y]]) or \
        all([t < height for t in grid_column[y+1:]]):
         return True
     else:
-
         return False
 
 def calc_score(x, y):
