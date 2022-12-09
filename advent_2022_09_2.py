@@ -27,27 +27,14 @@ def calc_tail(knot):
     else:
         # Knots are on the same Vertical co-ordinate but 2 positions apart
         if tail_x == head_x:
-            if head_y > tail_y:
-                tail_y += 1
-            else:
-                tail_y -= 1
+            tail_y += 1 if head_y > tail_y else -1
         # Knots are on the same Horizontal co-ordinate but 2 positions apart
         elif tail_y == head_y:
-            if head_x > tail_x:
-                tail_x += 1
-            else:
-                tail_x -= 1
+            tail_x += 1 if head_x > tail_x else -1
         # Tail needs to move in a diagonal direction
         else:
-            if head_x > tail_x:
-                tail_x += 1
-            else:
-                tail_x -= 1
-            
-            if head_y > tail_y:
-                tail_y += 1
-            else:
-                tail_y -= 1
+            tail_x += 1 if head_x > tail_x else -1
+            tail_y += 1 if head_y > tail_y else -1
 
     positions[knot] = [tail_x, tail_y]
 
