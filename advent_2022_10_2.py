@@ -8,13 +8,13 @@ f.close()
 cycle = 0
 X = 1
 
-current_row = ['#'] * 40
+current_row = ['?'] * 40
 rows = []
 
 for line in lines:
     for _ in range(1 if line == "noop" else 2):
         cycle += 1
-        current_row[cycle - 1] = '#' if cycle - 1 in (X - 1, X, X + 1) else '.'
+        current_row[cycle - 1] = '#' if cycle - 1 in (X - 1, X, X + 1) else ' '
 
         if cycle == 40:
             rows.append(current_row)
