@@ -36,6 +36,6 @@ while frontier:
                 if (new_x, new_y) == end_position:
                     print(steps + 1)
                     frontier = []
-                    continue
+                    break
                 else:
                     frontier.append((new_x, new_y, steps + 1))
