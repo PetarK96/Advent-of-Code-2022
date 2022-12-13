@@ -34,7 +34,6 @@ def is_right_order(left, right):
     checks = 0
     for pair in zip(left, right):
         checks += 1
-        #print(pair)
         if isinstance(pair[0], int) and isinstance(pair[1], int):
             if pair[0] < pair[1]:
                 return 1
@@ -63,6 +62,8 @@ def is_right_order(left, right):
 packets = [parse_list(lines[0])]
 
 lines.append("")
+lines.append("[[2]]")
+lines.append("[[6]]")
 
 for line in lines[1:]:
     found = False
@@ -76,11 +77,4 @@ for line in lines[1:]:
         if not found:
             packets.append(line)
 
-line1 = parse_list("[[2]]")
-line2 = parse_list("[[6]]")
-for line in (line1, line2):
-    for index, packet in enumerate(packets):
-        if is_right_order(line, packet) == 1:
-            packets.insert(index, line)
-            print(index)
-            break
+print((packets.index([[2]]) + 1) * (packets.index([[6]]) + 1))
