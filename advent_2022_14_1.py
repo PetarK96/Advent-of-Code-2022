@@ -29,7 +29,6 @@ for line in lines:
     populate_path(line.split(" -> "))
 
 sand_unit = 0
-abyss = False
 
 while True:
     pos = (500, 0)
