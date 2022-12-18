@@ -29,14 +29,6 @@ for (x, y, z) in lines:
     min_x, min_y, min_z = min(min_x, x), min(min_y, y), min(min_z, z)
     max_x, max_y, max_z = max(max_x, x + 1), max(max_y, y + 1), max(max_z, z + 1)
 
-count = 0
-
-for face in exposed:
-    if exposed[face]:
-        count += 1
-
-air_droplets = 0
-
 missing = {}
 
 for x in range(min_x + 1, max_x):
