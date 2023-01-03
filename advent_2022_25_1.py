@@ -7,24 +7,24 @@ f.close()
 
 total = 0
 
-def get_decimal(line):
+for line in lines:
     power = 0
-    decimal = 0
-    for i in range(len(line) - 1, -1, -1):
-        if line[i] == '-':
-            num = -1
-        elif line[i] == '=':
-            num = -2
-        else:
-            num = line[i]
-        num = int(num) * (5 ** power)
-        decimal += num
+    for x in line[::-1]:
+        total += ("=-012".find(x) - 2) * (5 ** power)
         power += 1
-    return decimal
-
-for line in lines:    
-    total += get_decimal(line)
 
 print(total)
 
-print(get_decimal("2011-=2=-1020-1===-1"))
+snafu = ""
+
+while total:
+    rem = total % 5
+    total //= 5
+
+    if rem <= 2:
+        snafu = str(rem) + snafu
+    else:
+        snafu = "   =-"[rem] + snafu
+        total += 1
+
+print(snafu)
